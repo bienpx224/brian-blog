@@ -1,35 +1,42 @@
-import projectsData from '@/data/projectsData'
-import Card from '@/components/Card'
 import { genPageMetadata } from 'app/seo'
+import { ProjectCard } from '~/components/cards/project'
+import { Container } from '~/components/ui/container'
+import { PageHeader } from '~/components/ui/page-header'
+import { PROJECTS } from '~/data/projects'
 
-export const metadata = genPageMetadata({ title: 'Projects' })
+export let metadata = genPageMetadata({ title: 'Projects' })
 
-export default function Projects() {
+export default async function Projects() {
+  let workProjects = PROJECTS.filter(({ type }) => type === 'work')
+  let sideProjects = PROJECTS.filter(({ type }) => type === 'self')
+
   return (
-    <>
-      <div className="divide-y divide-gray-200 dark:divide-gray-700">
-        <div className="space-y-2 pt-6 pb-8 md:space-y-5">
-          <h1 className="text-3xl leading-9 font-extrabold tracking-tight text-gray-900 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14 dark:text-gray-100">
-            Projects
-          </h1>
-          <p className="text-lg leading-7 text-gray-500 dark:text-gray-400">
-            Showcase your projects with a hero image (16 x 9)
-          </p>
-        </div>
-        <div className="container py-12">
-          <div className="-m-4 flex flex-wrap">
-            {projectsData.map((d) => (
-              <Card
-                key={d.title}
-                title={d.title}
-                description={d.description}
-                imgSrc={d.imgSrc}
-                href={d.href}
-              />
-            ))}
-          </div>
+    <Container className="pt-4 lg:pt-12">
+      <PageHeader
+        title="Projects"
+        description="Collections of my open-source side projects, along with some cool things I’ve built with colleagues at work. It’s a mix of passion projects and practical tools—some just for fun, others to solve real-world problems."
+        className="border-b border-gray-200 dark:border-gray-700"
+      />
+      <div className="py-5 md:py-10">
+        <h3 className="mb-6 text-2xl font-bold leading-9 tracking-tight text-gray-900 dark:text-gray-100 md:text-3xl">
+          Work
+        </h3>
+        <div className="grid grid-cols-1 gap-12 lg:grid-cols-2">
+          {workProjects.map((pro) => (
+            <ProjectCard key={pro.title} project={pro} />
+          ))}
         </div>
       </div>
-    </>
+      <div className="mt-6 border-t border-gray-200 py-5 dark:border-gray-700 md:mt-10 md:py-10">
+        <h3 className="mb-6 text-2xl font-bold leading-9 tracking-tight text-gray-900 dark:text-gray-100 md:mb-8 md:text-3xl">
+          Side projects
+        </h3>
+        <div className="grid grid-cols-1 gap-12 lg:grid-cols-2">
+          {sideProjects.map((pro) => (
+            <ProjectCard key={pro.title} project={pro} />
+          ))}
+        </div>
+      </div>
+    </Container>
   )
 }

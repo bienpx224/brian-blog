@@ -1,34 +1,26 @@
-import ListLayout from '@/layouts/ListLayoutWithTags'
-import { allCoreContent, sortPosts } from 'pliny/utils/contentlayer'
 import { allBlogs } from 'contentlayer/generated'
-import { notFound } from 'next/navigation'
+import { ListLayout } from '~/layouts/list-layout'
+import { POSTS_PER_PAGE } from '~/utils/const'
+import { allCoreContent } from '~/utils/contentlayer'
+import { sortPosts } from '~/utils/misc'
 
-const POSTS_PER_PAGE = 5
-
-export const generateStaticParams = async () => {
-  const totalPages = Math.ceil(allBlogs.length / POSTS_PER_PAGE)
-  const paths = Array.from({ length: totalPages }, (_, i) => ({ page: (i + 1).toString() }))
-
+export let generateStaticParams = async () => {
+  let totalPages = Math.ceil(allBlogs.length / POSTS_PER_PAGE)
+  let paths = Array.from({ length: totalPages }, (_, i) => ({ page: (i + 1).toString() }))
   return paths
 }
 
 export default async function Page(props: { params: Promise<{ page: string }> }) {
-  const params = await props.params
-  const posts = allCoreContent(sortPosts(allBlogs))
-  const pageNumber = parseInt(params.page as string)
-  const totalPages = Math.ceil(posts.length / POSTS_PER_PAGE)
-
-  // Return 404 for invalid page numbers or empty pages
-  if (pageNumber <= 0 || pageNumber > totalPages || isNaN(pageNumber)) {
-    return notFound()
-  }
-  const initialDisplayPosts = posts.slice(
+  let params = await props.params
+  let posts = allCoreContent(sortPosts(allBlogs))
+  let pageNumber = parseInt(params.page as string)
+  let initialDisplayPosts = posts.slice(
     POSTS_PER_PAGE * (pageNumber - 1),
     POSTS_PER_PAGE * pageNumber
   )
-  const pagination = {
+  let pagination = {
     currentPage: pageNumber,
-    totalPages: totalPages,
+    totalPages: Math.ceil(posts.length / POSTS_PER_PAGE),
   }
 
   return (
@@ -36,7 +28,7 @@ export default async function Page(props: { params: Promise<{ page: string }> })
       posts={posts}
       initialDisplayPosts={initialDisplayPosts}
       pagination={pagination}
-      title="All Posts"
+      title="All posts"
     />
   )
 }

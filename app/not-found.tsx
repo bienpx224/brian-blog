@@ -1,25 +1,29 @@
-import Link from '@/components/Link'
+import { Button } from '~/components/ui/button'
+import { Container } from '~/components/ui/container'
+import { Link } from '~/components/ui/link'
+import { Twemoji } from '~/components/ui/twemoji'
+import FourOhFour from '~/icons/404.svg'
 
 export default function NotFound() {
   return (
-    <div className="flex flex-col items-start justify-start md:mt-24 md:flex-row md:items-center md:justify-center md:space-x-6">
-      <div className="space-x-2 pt-6 pb-8 md:space-y-5">
-        <h1 className="text-6xl leading-9 font-extrabold tracking-tight text-gray-900 md:border-r-2 md:px-6 md:text-8xl md:leading-14 dark:text-gray-100">
-          404
-        </h1>
+    <Container className="pt-4 lg:pt-12">
+      <div className="flex flex-col items-center justify-center py-6">
+        <FourOhFour className="mx-auto aspect-square w-[300px] max-w-[80vw] md:w-[500px]" />
+        <div className="space-x-2 pt-8 md:space-y-5 md:pt-12 xl:pt-16">
+          <div className="max-w-md text-center">
+            <p className="mb-4 text-xl font-bold leading-normal md:text-2xl">
+              Hmm... it looks like you're lost.
+              <Twemoji emoji={'face-with-monocle'} />
+            </p>
+            <p className="mb-8">
+              But don't worry, you can find plenty of other things on my homepage.
+            </p>
+            <Link href="/">
+              <Button>Back to homepage</Button>
+            </Link>
+          </div>
+        </div>
       </div>
-      <div className="max-w-md">
-        <p className="mb-4 text-xl leading-normal font-bold md:text-2xl">
-          Sorry we couldn't find this page.
-        </p>
-        <p className="mb-8">But dont worry, you can find plenty of other things on our homepage.</p>
-        <Link
-          href="/"
-          className="focus:shadow-outline-blue inline rounded-lg border border-transparent bg-blue-600 px-4 py-2 text-sm leading-5 font-medium text-white shadow-xs transition-colors duration-150 hover:bg-blue-700 focus:outline-hidden dark:hover:bg-blue-500"
-        >
-          Back to homepage
-        </Link>
-      </div>
-    </div>
+    </Container>
   )
 }

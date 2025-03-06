@@ -1,41 +1,34 @@
-import Link from '@/components/Link'
-import Tag from '@/components/Tag'
-import { slug } from 'github-slugger'
-import tagData from 'app/tag-data.json'
 import { genPageMetadata } from 'app/seo'
+import { Tag } from '~/components/blog/tags'
+import { Container } from '~/components/ui/container'
+import tagData from '~/json/tag-data.json'
 
-export const metadata = genPageMetadata({ title: 'Tags', description: 'Things I blog about' })
+export let metadata = genPageMetadata({ title: 'Tags', description: 'Things I blog about' })
 
 export default async function Page() {
-  const tagCounts = tagData as Record<string, number>
-  const tagKeys = Object.keys(tagCounts)
-  const sortedTags = tagKeys.sort((a, b) => tagCounts[b] - tagCounts[a])
+  let tagCounts = tagData as Record<string, number>
+  let tagKeys = Object.keys(tagCounts)
+  let sortedTags = tagKeys.sort((a, b) => tagCounts[b] - tagCounts[a])
   return (
-    <>
-      <div className="flex flex-col items-start justify-start divide-y divide-gray-200 md:mt-24 md:flex-row md:items-center md:justify-center md:space-x-6 md:divide-y-0 dark:divide-gray-700">
-        <div className="space-x-2 pt-6 pb-8 md:space-y-5">
-          <h1 className="text-3xl leading-9 font-extrabold tracking-tight text-gray-900 sm:text-4xl sm:leading-10 md:border-r-2 md:px-6 md:text-6xl md:leading-14 dark:text-gray-100">
+    <Container className="pt-4 md:pt-0">
+      <div className="flex flex-col items-start justify-start divide-y divide-gray-200 dark:divide-gray-700 md:mt-24 md:flex-row md:items-center md:justify-center md:space-x-6 md:divide-y-0">
+        <div className="space-x-2 pt-6">
+          <h1 className="text-3xl font-bold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:border-r-2 md:px-6 md:text-6xl md:leading-14">
             Tags
           </h1>
         </div>
-        <div className="flex max-w-lg flex-wrap">
+        <div className="my-8 flex flex-wrap gap-x-5 gap-y-2 py-8 md:my-0 md:py-8">
           {tagKeys.length === 0 && 'No tags found.'}
           {sortedTags.map((t) => {
             return (
-              <div key={t} className="mt-2 mr-5 mb-2">
-                <Tag text={t} />
-                <Link
-                  href={`/tags/${slug(t)}`}
-                  className="-ml-2 text-sm font-semibold text-gray-600 uppercase dark:text-gray-300"
-                  aria-label={`View posts tagged ${t}`}
-                >
-                  {` (${tagCounts[t]})`}
-                </Link>
+              <div key={t} className="flex items-center gap-0.5">
+                <Tag text={t} size="md" />
+                <span className="text-gray-600 dark:text-gray-300">({tagCounts[t]})</span>
               </div>
             )
           })}
         </div>
       </div>
-    </>
+    </Container>
   )
 }

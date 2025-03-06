@@ -1,9 +1,16 @@
-import { sortPosts, allCoreContent } from 'pliny/utils/contentlayer'
-import { allBlogs } from 'contentlayer/generated'
-import Main from './Main'
+import { allBlogs, allSnippets } from 'contentlayer/generated'
+import { Home } from '~/components/home-page'
+import { allCoreContent } from '~/utils/contentlayer'
+import { sortPosts } from '~/utils/misc'
 
-export default async function Page() {
-  const sortedPosts = sortPosts(allBlogs)
-  const posts = allCoreContent(sortedPosts)
-  return <Main posts={posts} />
+const MAX_POSTS_DISPLAY = 5
+const MAX_SNIPPETS_DISPLAY = 6
+
+export default async function HomePage() {
+  return (
+    <Home
+      posts={allCoreContent(sortPosts(allBlogs)).slice(0, MAX_POSTS_DISPLAY)}
+      snippets={allCoreContent(sortPosts(allSnippets)).slice(0, MAX_SNIPPETS_DISPLAY)}
+    />
+  )
 }
