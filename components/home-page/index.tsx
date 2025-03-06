@@ -6,7 +6,7 @@ import type { CoreContent } from '~/types/data'
 import { Greeting } from './greeting'
 import { Intro } from './intro'
 import { LatestPosts } from './latest-posts'
-import { BlogLinks } from './links'
+import { Links } from './links'
 import { TypedBios } from './typed-bios'
 
 export function Home({
@@ -30,7 +30,7 @@ export function Home({
               <p>I have a passion for JS/TS, web dev, and eCommerce.</p>
               <p>I started this blog to document and share my knowledge & experience.</p>
             </div>
-            <BlogLinks />
+            <Links />
             <p className="my-6 flex md:my-8">
               <span className="mr-2">Happy reading</span>
               <Twemoji emoji="clinking-beer-mugs" />

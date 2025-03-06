@@ -1,237 +1,65 @@
-import type { Author } from 'contentlayer/generated'
 import type { ReactNode } from 'react'
-import { CareerTimeline } from '~/components/author/career'
-import { SocialAccounts } from '~/components/author/social-accounts'
-import { ProfileCard } from '~/components/cards/profile'
-import { Button } from '~/components/ui/button'
 import { Container } from '~/components/ui/container'
-import { Image } from '~/components/ui/image'
-import { PageHeader } from '~/components/ui/page-header'
-import { Twemoji } from '~/components/ui/twemoji'
 import { SITE_METADATA } from '~/data/site-metadata'
 
 interface Props {
-  children?: ReactNode
-  content: Omit<Author, '_id' | '_raw' | 'body'>
+  children: ReactNode
 }
 
 export function AuthorLayout({ children }: Props) {
   return (
-    <Container className="pt-4 lg:pt-12">
-      <PageHeader
-        title="About"
-        description="A bit of background on who I am, what I do, and why I started this blog. Nothing too serious, just a little intro to the person typing away behind the scenes."
-        className="border-b border-gray-200 dark:border-gray-700"
-      />
-      <div className="py-8 md:grid md:grid-cols-3">
-        <div className="pr-4">
-          <ProfileCard />
-        </div>
-        <div className="md:col-span-2 md:pl-12 xl:pl-16">
-          <div className="prose prose-lg dark:prose-invert">
-            <div>
-              <h2 className="mt-0">
-                Hi there <Twemoji emoji="waving-hand" />
-              </h2>
-              <p>
-                I'm <strong>Tuan Anh Huynh</strong> (alias <strong>Leo</strong> at work), a software
-                engineer from <strong>Vietnam</strong>. I have a passion for all things{' '}
-                <strong>Javascript</strong>. I enjoy building eCommerce software and stuff related
-                to web dev. I work mainly with <strong>Typescript</strong>, <strong>React</strong>,{' '}
-                <strong>NodeJS</strong>, <strong>Remix</strong>, and <strong>TailwindCSS</strong>.
-              </p>
-              <p>
-                This blog serves as a journal for documenting and sharing the insights and knowledge
-                I've gained as a software engineer. Building, writing, and sharing things is a great
-                way for me to solidify my understanding of new concepts and ideas.
-              </p>
-              <p>
-                I would greatly appreciate any comments and thoughts on my posts{' '}
-                <Twemoji emoji="clinking-beer-mugs" />.
-              </p>
-            </div>
-            <div>
-              <div className="mb-[1em] mt-[2em] flex items-center justify-between [&>h2]:my-0">
-                <h2>My career</h2>
-                <Button as="a" href="/static/resume.pdf" target="_blank">
-                  <span>Resume</span>
-                  <Twemoji emoji="page-facing-up" />
-                </Button>
-              </div>
-              <CareerTimeline />
-            </div>
-            <div>
-              <h2>Tech stack</h2>
-              <p>
-                This blog is hosted on{' '}
-                <a href="https://vercel.com/" target="_blank">
-                  Vercel
-                </a>
-                , built with{' '}
-                <a href="https://nextjs.org/" target="_blank">
-                  Next.js
-                </a>{' '}
-                and{' '}
-                <a href="https://tailwindcss.com/" target="_blank">
-                  Tailwind CSS
-                </a>{' '}
-                using <strong>Tailwind Nextjs Starter Blog</strong>.
-              </p>
-              <p>
-                A huge thanks to{' '}
-                <a href="https://twitter.com/timlrxx" target="_blank">
-                  Timothy Lin
-                </a>{' '}
-                for the minimal, lightweight, and super easy-to-customize blog starter.
-              </p>
-              <p>A few major over-engineering-changes from the original repo:</p>
-              <ul>
-                <li>
-                  <Twemoji emoji="atom-symbol" /> Upgrading to <strong>React v18</strong>,{' '}
-                  <strong>Next v14</strong>
-                  (Using App router)
-                </li>
-                <li>
-                  <Twemoji emoji="party-popper" /> Adopting <strong>Typescript</strong>, committing
-                  with{' '}
-                  <a href="https://www.conventionalcommits.org/" target="_blank">
-                    Conventional Commits
-                  </a>
-                </li>
-                <li>
-                  <Twemoji emoji="bar-chart" /> Monitoring site with{' '}
-                  <a href="https://umami.is/" target="_blank">
-                    Umami
-                  </a>{' '}
-                  website analytics
-                </li>
-                <li>
-                  <Twemoji emoji="eyes" /> Theming in dark mode with{' '}
-                  <a
-                    href="https://github.blog/changelog/2021-04-14-dark-and-dimmed-themes-are-now-generally-available/"
-                    target="_blank"
-                  >
-                    Github dark dimmed
-                  </a>{' '}
-                  colors for better contrast
-                </li>
-                <li>
-                  <Twemoji emoji="man-technologist" /> Making a lot of changes to the UI, new
-                  homepage design, adding <code>ProfileCard</code>, <code>CareerTimeline</code>{' '}
-                  components, adding <code>/snippets</code>, <code>/books</code>,{' '}
-                  <code>/movies</code> page, etc.
-                </li>
-                {/* <li>
-                  <Twemoji emoji="inbox-tray" /> Bumping up <code>mdx-bundler</code>,{' '}
-                  <code>rehype</code>/<code>remark</code> plugins and dependencies to the latest
-                  version
-                </li> */}
-              </ul>
-              <p>
-                See my{' '}
-                <a href="https://github.com/hta218/leohuynh.dev" target="_blank">
-                  Github repository
-                </a>{' '}
-                for this blog.
-              </p>
-              <div>
-                <h3>Legacy versions</h3>
-                <p>I started this blog since 2019 and up until now it has 2 legacy versions:</p>
-                <ul>
-                  <li>
-                    <code>v1</code> built with <strong>NextJS v13</strong> using Page router:{' '}
-                    <a
-                      href="https://leohuynhdev-git-v1-leo-huynhs-projects.vercel.app/"
-                      target="_blank"
-                    >
-                      https://leohuynhdev-git-v1-leo-huynhs-projects.vercel.app/
-                    </a>
-                  </li>
-                  <li>
-                    <code>v0</code> built with <strong>Gatsby</strong>:{' '}
-                    <a href="https://leo-blog-legacy.vercel.app/" target="_blank">
-                      https://leo-blog-legacy.vercel.app/
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div>
-              <h2>Assets</h2>
-              <p>
-                Most of the images in my blog are from{' '}
-                <a href="https://unsplash.com/" target="_blank">
-                  Unsplash
-                </a>
-                , gifs from{' '}
-                <a href="https://giphy.com/" target="_blank">
-                  GIPHY
-                </a>
-                , and illustrations are from{' '}
-                <a href="https://storyset.com/" target="_blank">
-                  Storyset
-                </a>
-                .
-              </p>
-              <p>
-                Thanks for the free resources <Twemoji emoji="folded-hands" />.
-              </p>
-            </div>
-            <div>
-              <h2>Contact</h2>
-              <p>
-                Reach out to me at{' '}
-                <a href={`mailto:${SITE_METADATA.email}`}>{SITE_METADATA.email}</a> or find me on
-                social media:
-              </p>
-              <SocialAccounts />
-            </div>
-            <div>
-              <h2>Support</h2>
-              <p>If you appreciate my work, consider supporting me:</p>
-              <div className="flex flex-col gap-4">
-                <a
-                  href={SITE_METADATA.support.buyMeACoffee}
-                  target="_blank"
-                  className="[&_.image-container]:mx-0"
-                >
-                  <Image
-                    src="/static/images/bmc-button.png"
-                    alt="Buy Me A Coffee"
-                    width={213.7}
-                    height={60}
-                    style={{ height: 60 }}
-                  />
-                </a>
-                <a
-                  href={SITE_METADATA.support.paypal}
-                  target="_blank"
-                  className="flex h-15 w-[214px] items-center rounded-lg bg-[#009cde]/70 p-1"
-                >
-                  <Image
-                    src="/static/images/paypal-logo.png"
-                    alt="Donate via PayPal"
-                    width={225.88}
-                    height={60}
-                    style={{ height: 30, width: 'auto' }}
-                  />
-                </a>
-                <a
-                  href={SITE_METADATA.support.kofi}
-                  target="_blank"
-                  className="[&_.image-container]:mx-0"
-                >
-                  <Image
-                    src="/static/images/kofi.png"
-                    alt="Support me on Ko-fi"
-                    width={297}
-                    height={60}
-                    style={{ height: 60, width: 'auto' }}
-                  />
-                </a>
-              </div>
-            </div>
+    <Container className="mt-16">
+      <div className="items-start space-y-2 xl:grid xl:grid-cols-3 xl:gap-x-8 xl:space-y-0">
+        <div className="flex flex-col items-center space-y-2 pt-8">
+          <img
+            src="/static/images/avatar.jpg"
+            alt="avatar"
+            className="h-48 w-48 rounded-full"
+          />
+          <h3 className="pb-2 pt-4 text-2xl font-bold leading-8 tracking-tight">
+            {SITE_METADATA.author}
+          </h3>
+          <div className="text-gray-500 dark:text-gray-400">Software Engineer & Technical Lead</div>
+          <div className="text-gray-500 dark:text-gray-400">AI/ML Integration Expert</div>
+          <div className="flex space-x-3 pt-6">
+            <a
+              href={SITE_METADATA.github}
+              target="_blank"
+              rel="noreferrer"
+              className="text-sm text-gray-500 transition hover:text-gray-600"
+            >
+              <span className="sr-only">Github</span>
+              <svg viewBox="0 0 24 24" className="h-6 w-6 fill-current">
+                <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
+              </svg>
+            </a>
+            <a
+              href={SITE_METADATA.linkedin}
+              target="_blank"
+              rel="noreferrer"
+              className="text-sm text-gray-500 transition hover:text-gray-600"
+            >
+              <span className="sr-only">Linkedin</span>
+              <svg viewBox="0 0 24 24" className="h-6 w-6 fill-current">
+                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+              </svg>
+            </a>
+            <a
+              href={`mailto:${SITE_METADATA.email}`}
+              target="_blank"
+              rel="noreferrer"
+              className="text-sm text-gray-500 transition hover:text-gray-600"
+            >
+              <span className="sr-only">Mail</span>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" className="h-6 w-6 fill-current">
+                <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
+                <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
+              </svg>
+            </a>
           </div>
+        </div>
+        <div className="prose max-w-none pb-8 pt-8 dark:prose-dark xl:col-span-2">
+          {children}
         </div>
       </div>
     </Container>

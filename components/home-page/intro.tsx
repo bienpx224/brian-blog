@@ -2,12 +2,15 @@ import { Twemoji } from '~/components/ui/twemoji'
 
 export function Intro() {
   return (
-    <h1 className="text-neutral-900 dark:text-neutral-200">
-      I'm <span className="font-medium">Tuan Anh Huynh</span> - a passionate Software Engineer in
-      <span className="hidden font-medium">Viet Nam</span>
-      <span className="absolute ml-1.5 inline-flex pt-[3px]">
-        <Twemoji emoji="flag-vietnam" />
-      </span>
-    </h1>
+    <div className="flex flex-col gap-4 text-zinc-600 dark:text-zinc-400">
+      <p>
+        Welcome to my corner of the web! Here I share my experiences and insights in software development,
+        particularly in AI integration, game development, and building scalable applications.
+      </p>
+      <p>
+        With over 6 years of experience, I've led teams in developing innovative solutions from AI-powered
+        financial platforms to engaging gaming experiences on various platforms.
+      </p>
+    </div>
   )
 }

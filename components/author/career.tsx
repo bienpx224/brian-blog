@@ -7,187 +7,119 @@ import { GrowingUnderline } from '~/components/ui/growing-underline'
 
 const EXPERIENCES = [
   {
-    org: 'Weaverse.io',
-    url: 'https://weaverse.io',
-    logo: '/static/images/weaverse-logo.png',
-    start: 'Mar 2022',
+    org: 'Sotalabs Studio',
+    url: 'https://sotalabs.com',
+    logo: '/static/images/sotalabs-logo.png',
+    start: 'Jan 2022',
     end: 'Present',
-    title: 'CTO / Co.Founder / Software Engineer',
+    title: 'Technical Lead',
     icon: 'briefcase',
-    event: 'career-weaverse',
+    event: 'career-sotalabs',
     details: () => {
       return (
         <ul className="[&>li]:my-2 [&>li]:pl-0">
           <li>
-            Building a smart{' '}
-            <a target="_blank" rel="noopener noreferrer" href="https://weaverse.io/demo">
-              Shopify Hydrogen Theme Customizer
+            Lead development teams and manage project lifecycles for fintech, AI, and gaming projects
+          </li>
+          <li>
+            Built{' '}
+            <a target="_blank" rel="noopener noreferrer" href="https://stock.zenai.ai.vn/home">
+              ZenAI Stock Analysis Platform
             </a>{' '}
-            to help creators build their own high quality and high performance headless storefronts
-            easily.
+            - AI-powered stock market analysis platform with real-time data processing
+          </li>
+          <li>
+            Developed multiple successful Telegram Mini Apps games including{' '}
+            <a target="_blank" rel="noopener noreferrer" href="https://t.me/PlinkoMasterBot/plinkomaster?startapp=SCZ7Q0">
+              Plinko Master
+            </a>{' '}
+            and{' '}
+            <a target="_blank" rel="noopener noreferrer" href="https://t.me/TeleMiniAppBrianBot/coinmaster?startapp=j8JsMNITqq">
+              Coin Master
+            </a>
+          </li>
+          <li>
+            Built{' '}
+            <a target="_blank" rel="noopener noreferrer" href="https://arcade.pacman.meme/#/">
+              Pacman Arcade
+            </a>{' '}
+            - A GameFi project on Blast blockchain network
           </li>
         </ul>
       )
     },
   },
   {
-    org: 'FoxEcom',
-    url: 'https://foxecom.com/',
-    logo: '/static/images/foxecom-logo.jpeg',
-    start: 'May 2021',
+    org: 'Sotatek Company',
+    url: 'https://www.sotatek.com',
+    logo: '/static/images/sotatek-logo.png',
+    start: 'Mar 2022',
+    end: 'Dec 2022',
+    title: 'Game Developer',
+    icon: 'man-technologist',
+    event: 'career-sotatek',
+    details: () => {
+      return (
+        <ul className="[&>li]:my-2 [&>li]:pl-0">
+          <li>
+            Developed{' '}
+            <a target="_blank" rel="noopener noreferrer" href="https://play.google.com/store/apps/details?id=com.bunicorn.island">
+              Bunicorn Island
+            </a>{' '}
+            - A GameFi project on BSC Network
+          </li>
+          <li>
+            Responsible for ensuring features, quality, and project release according to plan
+          </li>
+          <li>
+            Implemented game optimization techniques for textures, asset bundles, and lazy loading
+          </li>
+        </ul>
+      )
+    },
+  },
+  {
+    org: 'VCCorp',
+    url: 'https://vccorp.vn',
+    logo: '/static/images/vccorp-logo.png',
+    start: 'Sep 2018',
     end: 'Feb 2022',
-    title: 'Senior Software Engineer',
+    title: 'Mobile Developer',
     icon: 'man-technologist',
-    event: 'career-foxecom',
+    event: 'career-vccorp',
     details: () => {
       return (
         <ul className="[&>li]:my-2 [&>li]:pl-0">
           <li>
-            Built{' '}
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
-              href="https://themeforest.net/item/minimog-the-high-converting-shopify-theme/33380968"
-            >
-              Minimog
-            </a>{' '}
-            - a multipurpose Shopify Theme (top best selling templates on Envato Market)
+            Developed and published multiple casual and puzzle games on mobile stores
           </li>
           <li>
-            Built{' '}
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
-              href="https://apps.shopify.com/foxecom-boost-sales"
-            >
-              Fox Kit Shopify App
-            </a>{' '}
-            - The upsells and boost conversion tool built to support Minimog theme
+            Developed library SDKs for Android applications using Java & C++, JNI in Lotus Social Network Project
+          </li>
+          <li>
+            Led game development teams and managed multiple successful game launches
           </li>
         </ul>
       )
     },
   },
   {
-    org: 'Coc Coc',
-    url: 'https://coccoc.com/en',
-    logo: '/static/images/coc-coc-logo.png',
-    start: 'May 2020',
-    end: 'Apr 2021',
-    title: 'Frontend Engineer',
-    icon: 'man-technologist',
-    event: 'career-coc-coc',
-    details: () => {
-      return (
-        <ul className="[&>li]:my-2 [&>li]:pl-0">
-          <li>
-            Working on the <strong>#1 web browser & search engine</strong> in{' '}
-            <strong>Viet Nam</strong> (30M+ users)
-          </li>
-          <li>
-            Built{' '}
-            <a target="_blank" rel="noopener noreferrer" href="https://coccoc.com/webhp">
-              Coc Coc's newsfeed
-            </a>
-          </li>
-          <li>Maintained and optimized new tab's widgets and performance</li>
-        </ul>
-      )
-    },
-  },
-  {
-    org: 'BraveBits',
-    url: 'https://bravebits.co/',
-    logo: '/static/images/bb-logo.png',
-    start: 'Aug 2018',
-    end: 'Apr 2020',
-    title: 'Fullstack Developer',
-    icon: 'man-technologist',
-    event: 'career-bravebits',
-    details: () => {
-      return (
-        <ul className="[&>li]:my-2 [&>li]:pl-0">
-          <li>Working on the #1 Page Builder app on Shopify app store</li>
-          <li>Built Pagefly's Analytics APIs</li>
-          <li>
-            Built{' '}
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
-              href="https://github.com/sellersmith/slider-x"
-            >
-              Slider-x
-            </a>
-          </li>
-        </ul>
-      )
-    },
-  },
-  {
-    org: 'MindX - Technology School',
-    url: 'https://mindx.edu.vn/',
-    logo: '/static/images/mindx-logo.jpeg',
-    start: 'May 2017',
-    end: 'Jul 2018',
-    title: 'Instructor and Developer',
-    icon: 'man-technologist',
-    event: 'career-mindx',
-    details: () => {
-      return (
-        <ul className="[&>li]:my-2 [&>li]:pl-0">
-          <li>
-            Built{' '}
-            <a target="_blank" rel="noopener noreferrer" href="http://lok.vn/">
-              Love of Knowledge
-            </a>{' '}
-            (Front-end Developer)
-          </li>
-          <li>
-            Built{' '}
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
-              href="https://hta218.github.io/get-a-room-api-docs/"
-            >
-              Room Finder APIs
-            </a>{' '}
-            (Back-end Developer)
-          </li>
-          <li>
-            Built{' '}
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
-              href="https://github.com/hta218/Travel_Egypt"
-            >
-              Travel Egypt
-            </a>{' '}
-            - a picture puzzle game made by pygame (Python)
-          </li>
-          <li>Mentored Python fundamentals and Python web development for newbies</li>
-        </ul>
-      )
-    },
-  },
-  {
-    org: 'Hanoi University of Science and Technology',
-    url: 'https://www.hust.edu.vn/en/',
+    org: 'Ha Noi University of Science and Technology',
+    url: 'https://www.hust.edu.vn/',
     logo: '/static/images/hust-logo.png',
-    start: 'Sep 2013',
-    end: 'Feb 2019',
-    title: 'Student at SEEE (School of Electrical & Electronic Engineering)',
+    start: 'Aug 2014',
+    end: 'Aug 2018',
+    title: 'Bachelor in Information Technology and Communication',
     icon: 'man-student',
     event: 'career-hust',
     details: () => {
       return (
         <ul className="[&>li]:my-2 [&>li]:pl-0">
           <li>
-            Get a good degree at <strong>School of Electrical & Electronic Engineering</strong>
+            Graduated with a degree in <strong>Information Technology and Communication</strong>
           </li>
           <li>
-            And yeah! My major subject was <strong>Electronics and Telecommunications</strong>, but
-            I couldn't find interest in that field. So I learned Software Engineering instead, and
-            became what I am today.
+            Focused on software development and computer science fundamentals
           </li>
         </ul>
       )
@@ -248,28 +180,28 @@ function TimelineItem({ exp, last }: { exp: (typeof EXPERIENCES)[0]; last?: bool
             className={clsx([
               'minus hidden',
               'absolute right-1 top-1',
-              'transition-transform duration-300 ease-in-out',
               'text-gray-600 dark:text-gray-500',
             ])}
             data-umami-event={`${event}-collapse`}
           />
           <div className="flex flex-col">
-            <div className="line-clamp-1 text-xs tabular-nums text-gray-500 dark:text-gray-400">
-              <span>{start}</span> – <span>{end}</span>
+            <div className="flex items-center gap-1">
+              <Link
+                href={url}
+                className="text-base font-medium text-gray-900 dark:text-gray-100"
+              >
+                {org}
+              </Link>
+              <span className="hidden text-gray-400 dark:text-gray-500 md:inline">&middot;</span>
+              <span className="hidden text-gray-500 dark:text-gray-400 md:inline">{title}</span>
             </div>
-            <Link
-              href={url}
-              className="line-clamp-1 w-fit font-semibold text-gray-900 no-underline hover:text-gray-900 dark:text-white dark:hover:text-white"
-            >
-              <GrowingUnderline data-umami-event={event}>{org}</GrowingUnderline>
-            </Link>
-            <div className="flex items-center gap-1 pt-1 text-sm text-gray-700 dark:text-gray-200">
-              <Twemoji emoji={icon} className="!-mt-1" />
-              <span>{title}</span>
-            </div>
+            <span className="text-sm text-gray-500 dark:text-gray-400 md:hidden">{title}</span>
+            <span className="text-xs text-gray-400 dark:text-gray-500">
+              {start} - {end}
+            </span>
           </div>
         </summary>
-        <div className="pt-1 text-base">
+        <div className="mt-3">
           <Details />
         </div>
       </details>

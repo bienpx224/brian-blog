@@ -9,15 +9,16 @@ export type SpotifyNowPlayingData = {
   albumImageUrl?: string
 }
 
-export type Project = {
-  type: 'work' | 'self'
+export interface Project {
   title: string
-  description?: string
-  imgSrc: string
+  description: string
   url?: string
   repo?: string
-  builtWith: string[]
+  tech: string[]
   links?: { title: string; url: string }[]
+  type?: string
+  imgSrc?: string
+  builtWith?: string[]
 }
 
 export type GoodreadsBook = {
@@ -107,20 +108,29 @@ export interface ViewApiResponse {
   }
 }
 
-export type GithubRepository = {
+export interface GithubRepository {
   stargazerCount: number
-  description: string
-  homepageUrl: string
+  description: string | null
+  homepageUrl: string | null
   languages: {
-    color: string
-    name: string
-  }[]
+    edges: Array<{
+      node: {
+        name: string
+      }
+    }>
+  }
   name: string
   nameWithOwner: string
   url: string
-  forkCount: number
-  repositoryTopics: string[]
-  lastCommit?: GithubRepositoryCommit
+  isPrivate: boolean
+  defaultBranchRef: {
+    name: string
+  }
+  refs: {
+    nodes: Array<{
+      name: string
+    }>
+  }
 }
 
 // https://docs.github.com/en/graphql/reference/enums#statusstate
@@ -142,4 +152,20 @@ export type MDXDocumentDate = MDXDocument & {
   date: string
 }
 
-export type CoreContent<T> = Omit<T, 'body' | '_raw' | '_id'>
+export interface CoreContent<T> {
+  title: string
+  description: string
+  tags: string[]
+  date: string
+  lastmod?: string
+  draft?: boolean
+  summary?: string
+  images?: string[] | string
+  authors?: string[]
+  layout?: string
+  canonicalUrl?: string
+  slug: string
+  path: string
+  filePath: string
+  readingTime: { text: string; minutes: number; time: number; words: number }
+}

@@ -34,6 +34,36 @@ function getTime() {
   return { time, diff }
 }
 
+const META_LINKS = [
+  {
+    title: 'About',
+    href: '/about',
+  },
+  {
+    title: 'Projects',
+    href: '/projects',
+  },
+  {
+    title: 'Blog',
+    href: '/blog',
+  },
+  {
+    title: 'Contact',
+    href: `mailto:${SITE_METADATA.email}`,
+  },
+]
+
+const SOCIAL_LINKS = [
+  {
+    title: 'GitHub',
+    href: SITE_METADATA.github,
+  },
+  {
+    title: 'LinkedIn',
+    href: SITE_METADATA.linkedin,
+  },
+]
+
 export function FooterMeta() {
   let { time, diff } = getTime()
   let siteRepo = SITE_METADATA.siteRepo.replace('https://github.com/', '')

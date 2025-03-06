@@ -5,7 +5,7 @@ import React, { useCallback, useEffect, useRef, useState } from 'react'
 import { Image } from '~/components/ui/image'
 import { SpotifyNowPlaying } from '~/components/ui/now-playing'
 import { SITE_METADATA } from '~/data/site-metadata'
-import { ProfileCardInfo } from './profile-info'
+import { ProfileInfo } from './profile-info'
 
 export function ProfileCard() {
   let ref = useRef<HTMLDivElement>(null)
@@ -80,7 +80,7 @@ export function ProfileCard() {
             '[--artist-color:theme(colors.gray.400)]',
           ])}
         />
-        <ProfileCardInfo />
+        <ProfileInfo />
         <span className="h-1.5 bg-gradient-to-r from-green-300 via-blue-500 to-purple-600" />
       </div>
     </div>

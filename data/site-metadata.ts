@@ -1,47 +1,38 @@
-export const SITE_METADATA = {
-  title: `Leo's dev blog – stories, insights, and ideas`,
-  author: 'Leo Huynh',
-  headerTitle: `Leo's dev blog`,
-  description:
-    'A personal space on the cloud where I document my programming journey, sharing lessons, insights, and resources for fellow developers.',
+const SITE_METADATA = {
+  title: 'Brian Blog - Software Engineer & Technical Lead',
+  author: 'Bien (Brian) Pham',
+  headerTitle: 'Brian Blog',
+  description: 'A blog about software development, AI/ML integration, and game development by Bien (Brian) Pham',
   language: 'en-us',
-  theme: 'system', // system, dark or light
-  siteUrl: 'https://www.leohuynh.dev',
-  siteRepo: 'https://github.com/hta218/leohuynh.dev',
-  siteLogo: `${process.env.BASE_PATH || ''}/static/images/logo.jpg`,
-  socialBanner: `${process.env.BASE_PATH || ''}/static/images/twitter-card.jpeg`,
-  email: 'contact@leohuynh.dev',
-  github: 'https://github.com/hta218',
-  x: 'https://x.com/hta218_',
-  facebook: 'https://facebook.com/hta218',
-  youtube: 'https://www.youtube.com/@hta218_',
-  linkedin: 'https://www.linkedin.com/in/hta218',
-  threads: 'https://www.threads.net/hta218_',
-  instagram: 'https://www.instagram.com/hta218_',
+  theme: 'system',
+  siteUrl: 'https://brian-blog.vercel.app',
+  siteRepo: 'https://github.com/bienpx224/brian-blog',
+  siteLogo: '/static/images/logo.png',
+  socialBanner: '/static/images/twitter-card.png',
+  email: 'bienpx224@gmail.com',
+  github: 'https://github.com/bienpx224',
+  linkedin: 'https://www.linkedin.com/in/brian-it',
+  twitter: 'https://x.com/brian_pham224',
   locale: 'en-US',
   stickyNav: true,
-  goodreadsBookshelfUrl: 'https://www.goodreads.com/review/list/179720035-leo-huynh',
-  goodreadsFeedUrl: 'https://www.goodreads.com/review/list_rss/179720035',
-  imdbRatingsList: 'https://www.imdb.com/user/ur154483197/ratings/?view=grid',
   analytics: {
-    umamiAnalytics: {
-      websiteId: process.env.NEXT_UMAMI_ID,
-      shareUrl: 'https://analytics.leohuynh.dev/share/c9ErglxqzY5CQJ8g/leohuynh.dev',
-    },
+    plausibleDataDomain: '',
+    simpleAnalytics: false,
+    umamiWebsiteId: '',
+    googleAnalyticsId: '',
   },
   newsletter: {
-    // supports mailchimp, buttondown, convertkit, klaviyo, revue, emailoctopus, beehive
-    // Please add your .env file and modify it according to your selection
-    provider: 'buttondown',
+    provider: '',
   },
   comments: {
-    giscusConfigs: {
-      repo: process.env.NEXT_PUBLIC_GISCUS_REPO!,
-      repositoryId: process.env.NEXT_PUBLIC_GISCUS_REPOSITORY_ID!,
-      category: process.env.NEXT_PUBLIC_GISCUS_CATEGORY!,
-      categoryId: process.env.NEXT_PUBLIC_GISCUS_CATEGORY_ID!,
-      mapping: 'title', // supported options: pathname, url, title
-      reactions: '1', // Emoji reactions: 1 = enable / 0 = disable
+    provider: 'giscus',
+    giscusConfig: {
+      repo: process.env.NEXT_PUBLIC_GISCUS_REPO,
+      repositoryId: process.env.NEXT_PUBLIC_GISCUS_REPOSITORY_ID,
+      category: process.env.NEXT_PUBLIC_GISCUS_CATEGORY,
+      categoryId: process.env.NEXT_PUBLIC_GISCUS_CATEGORY_ID,
+      mapping: 'pathname',
+      reactions: '1',
       metadata: '0',
       theme: 'light',
       darkTheme: 'transparent_dark',
@@ -50,14 +41,16 @@ export const SITE_METADATA = {
     },
   },
   search: {
-    kbarConfigs: {
-      // path to load documents to search
-      searchDocumentsPath: `${process.env.BASE_PATH || ''}/search.json`,
+    provider: 'kbar',
+    kbarConfig: {
+      searchDocumentsPath: 'search.json',
     },
   },
   support: {
-    buyMeACoffee: 'https://www.buymeacoffee.com/leohuynh.dev',
-    paypal: 'https://paypal.me/hta218?country.x=VN&locale.x=en_US',
-    kofi: 'https://ko-fi.com/hta218',
+    buyMeACoffee: 'https://www.buymeacoffee.com/bienpx224',
+    kofi: 'https://ko-fi.com/bienpx224',
+    paypal: 'https://paypal.me/bienpx224',
   },
-}
+} as const
+
+export { SITE_METADATA }
